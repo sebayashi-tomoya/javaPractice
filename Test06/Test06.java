@@ -1,7 +1,4 @@
-package com.test;
-
-import java.lang.reflect.Array;
-import java.util.Arrays;
+package Test06;
 
 /**
  * 最小値、最大値、平均値を求める
