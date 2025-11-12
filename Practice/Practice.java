@@ -1,5 +1,3 @@
-package Practice;
-
 public class Practice {
     public static void main(String[] args) {
         // 練習5-1
