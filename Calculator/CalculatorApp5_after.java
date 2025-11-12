@@ -2,54 +2,51 @@ package Calculator;
 
 import java.util.Scanner;
 
-public class CalculatorApp5 {
+public class CalculatorApp5_after {
+    // ユーザーが入力して指定する計算法
+    private static final int ADD = 1;
+    private static final int SUBTRACT = 2;
+    private static final int MULTIPLY = 3;
+    private static final int DIVIDE = 4;
+
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
-
             System.out.print("1つ目の整数を入力してください: ");
-            int a = scanner.nextInt();
+            int first = scanner.nextInt();
 
             System.out.print("2つ目の整数を入力してください: ");
-            int b = scanner.nextInt();
+            int second = scanner.nextInt();
 
             System.out.println("\n計算方法を選んでください:");
-            System.out.println("1: 足し算");
-            System.out.println("2: 引き算");
-            System.out.println("3: 掛け算");
-            System.out.println("4: 割り算");
+            System.out.println(ADD + ": 足し算");
+            System.out.println(SUBTRACT + ": 引き算");
+            System.out.println(MULTIPLY + ": 掛け算");
+            System.out.println(DIVIDE + ": 割り算");
             System.out.print("→ ");
             int choice = scanner.nextInt();
 
-            int result = 0;
-            boolean valid = true;
             switch (choice) {
-                case 1:
-                    result = add(a, b);
+                case ADD:
+                    printResult(add(first, second));
                     break;
-                case 2:
-                    result = subtract(a, b);
+                case SUBTRACT:
+                    printResult(subtract(first, second));
                     break;
-                case 3:
-                    result = multiply(a, b);
+                case MULTIPLY:
+                    printResult(multiply(first, second));
                     break;
-                case 4:
-                    if (b == 0) {
+                case DIVIDE:
+                    if (second == 0) {
                         System.out.println("エラー: 0 で割ることはできません。");
-                        valid = false;
                     } else {
-                        result = divide(a, b);
+                        printResult(divide(first, second));
                     }
                     break;
                 default:
                     System.out.println("無効な選択です。");
-                    valid = false;
-            }
-
-            if (valid) {
-                System.out.println("結果: " + result);
             }
 
             System.out.print("\nもう一度計算しますか？ (y/n):");
@@ -65,6 +62,11 @@ public class CalculatorApp5 {
         }
 
         scanner.close();
+    }
+
+    // 結果を出力するメソッド
+    private static void printResult(int result) {
+        System.out.println("結果: " + result);
     }
 
     // 足し算

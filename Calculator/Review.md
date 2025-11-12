@@ -89,3 +89,5 @@ private static void printResult(int result) {
     System.out.println("結果: " + result);
 }
 ```
+
+この指摘をすべて受領すると、同じファイル内にあるCalculatorApp5_after.javaの実装になります。
